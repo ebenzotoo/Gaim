@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "843272652766",
+    "project_id": "gaim-e355e",
+    "storage_bucket": "gaim-e355e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:843272652766:android:04b4045ca5b330c8a87f4f",
+        "android_client_info": {
+          "package_name": "app.godalone.int"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkfNKfgmaYLy4f4jxCoHKC0VeRlcKXRvE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:843272652766:android:a19117ec34aac446a87f4f",
+        "android_client_info": {
+          "package_name": "com.gaim.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkfNKfgmaYLy4f4jxCoHKC0VeRlcKXRvE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
