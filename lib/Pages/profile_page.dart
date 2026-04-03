@@ -11,7 +11,6 @@ import '../auth/changepassword.dart';
 import '../auth/changeusername.dart';
 import '../auth/delete_account.dart';
 import '../auth/login_or_register.dart';
-import '../components/my_input_alert_box.dart';
 import '../components/settings_tile.dart';
 import '../themes/theme_provider.dart';
 import 'SubPages/give.dart';
@@ -26,7 +25,6 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  final _bioTextController = TextEditingController();
   final currentUser = FirebaseAuth.instance.currentUser!;
   String username = '';
   File? _profileImage; // File to store selected profile image
@@ -105,17 +103,6 @@ class _ProfilePageState extends State<ProfilePage> {
     await FirebaseAuth.instance.signOut();
     Navigator.pushReplacement(context,
         MaterialPageRoute(builder: (context) => const LoginOrRegister()));
-  }
-
-  // Show dialog for editing bio
-  void _showEditBioBox() {
-    showDialog(
-        context: context,
-        builder: (context) => MyInputAlertBox(
-            textController: _bioTextController,
-            hintext: "Edit bio",
-            onPressed: saveBio,
-            onPressedText: "Save"));
   }
 
   Future<void> saveBio() async {
