@@ -3,63 +3,70 @@ import 'package:godalone/components/Constants/colors.dart';
 import 'package:unicons/unicons.dart';
 
 class Give extends StatelessWidget {
-  const Give({super.key});
+  final bool isBottomSheet;
+
+  const Give({super.key, this.isBottomSheet = false});
 
   @override
   Widget build(BuildContext context) {
+    final content = SingleChildScrollView(
+      padding: const EdgeInsets.all(24),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          const Icon(Icons.volunteer_activism, size: 70, color: myMainColor),
+          const SizedBox(height: 12),
+          const Text(
+            'God Alone International Ministry',
+            textAlign: TextAlign.center,
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+          ),
+          const SizedBox(height: 6),
+          const Text(
+            'Your generosity makes a difference.',
+            textAlign: TextAlign.center,
+            style: TextStyle(color: Colors.grey),
+          ),
+          const SizedBox(height: 32),
+          _sectionCard(
+            context,
+            icon: UniconsLine.phone,
+            title: 'Mobile Money (MoMo Pay)',
+            rows: const [
+              _DetailRow(label: 'Merchant Number', value: '786022'),
+            ],
+          ),
+          const SizedBox(height: 16),
+          _sectionCard(
+            context,
+            icon: Icons.account_balance,
+            title: 'Bank Transfer (Access Bank)',
+            rows: const [
+              _DetailRow(label: 'Branch', value: 'Lashibi, Tema'),
+              _DetailRow(label: 'Account', value: '0041659272041'),
+              _DetailRow(label: 'Account', value: '0041659272042'),
+              _DetailRow(label: 'Account', value: '0041659272043'),
+            ],
+          ),
+        ],
+      ),
+    );
+
+    if (isBottomSheet) {
+      return content;
+    }
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
-          icon: const Icon(UniconsLine.times_circle, color: Colors.red, size: 40),
+          icon:
+              const Icon(UniconsLine.times_circle, color: Colors.red, size: 40),
         ),
         title: const Text('Give'),
         centerTitle: true,
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            const Icon(Icons.volunteer_activism, size: 70, color: myMainColor),
-            const SizedBox(height: 12),
-            const Text(
-              'God Alone International Ministry',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-            ),
-            const SizedBox(height: 6),
-            const Text(
-              'Your generosity makes a difference.',
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.grey),
-            ),
-            const SizedBox(height: 32),
-
-            _sectionCard(
-              context,
-              icon: UniconsLine.phone,
-              title: 'Mobile Money (MoMo Pay)',
-              rows: const [
-                _DetailRow(label: 'Merchant Number', value: '786022'),
-              ],
-            ),
-            const SizedBox(height: 16),
-
-            _sectionCard(
-              context,
-              icon: Icons.account_balance,
-              title: 'Bank Transfer (Access Bank)',
-              rows: const [
-                _DetailRow(label: 'Branch', value: 'Lashibi, Tema'),
-                _DetailRow(label: 'Account', value: '0041659272041'),
-                _DetailRow(label: 'Account', value: '0041659272042'),
-                _DetailRow(label: 'Account', value: '0041659272043'),
-              ],
-            ),
-          ],
-        ),
-      ),
+      body: content,
     );
   }
 

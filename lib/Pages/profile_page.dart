@@ -241,9 +241,10 @@ class _ProfilePageState extends State<ProfilePage> {
             ListTile(
               tileColor: Theme.of(context).colorScheme.secondary,
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return const Give();
-                }));
+                showModalBottomSheet(
+                  context: context,
+                  builder: (context) => const Give(isBottomSheet: true),
+                );
               },
               leading: const Icon(Icons.mobile_friendly_sharp),
               title: const Text(
