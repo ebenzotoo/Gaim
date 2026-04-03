@@ -42,3 +42,12 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
+# Prebuild directories
+/android/app/.cxx/
+android/app/prebuild/
+android/prebuild/
+**/prebuild/
+
+# Firebase options (sensitive config)
+lib/firebase_options.dart
+
