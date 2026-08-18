@@ -5,6 +5,14 @@ allprojects {
     }
 }
 
+// Redirect Gradle's output into <project>/build instead of <project>/android/build:
+// flutter_tools always looks for build artifacts under <project>/build/app/outputs/...,
+// regardless of what Gradle actually uses, so the two must be kept in sync.
+rootProject.buildDir = "../build"
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+
 subprojects {
     project.evaluationDependsOn(":app")
 }

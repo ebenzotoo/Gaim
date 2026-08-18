@@ -64,8 +64,10 @@ class _BibleHomePageState extends State<BibleHomePage> {
         Verse? currentVerse = mainProvider.currentVerse;
         bool isSelected = mainProvider.selectedVerses.isNotEmpty;
         return AnnotatedRegion<SystemUiOverlayStyle>(
+          // No systemNavigationBarColor: setting it triggers the deprecated
+          // Window.setNavigationBarColor, which has no effect on Android 15+
+          // edge-to-edge apps anyway.
           value: SystemUiOverlayStyle(
-            systemNavigationBarColor: Theme.of(context).colorScheme.primary,
             systemNavigationBarIconBrightness:
                 Theme.of(context).brightness == Brightness.dark
                     ? Brightness.light

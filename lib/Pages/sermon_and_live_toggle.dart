@@ -24,7 +24,13 @@ class _SermonLiveToggleState extends State<SermonLiveToggle> {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           backgroundColor: Colors.transparent,
-          systemOverlayStyle: SystemUiOverlayStyle.dark,
+          // Not SystemUiOverlayStyle.dark: it also sets an opaque
+          // systemNavigationBarColor, triggering the deprecated
+          // Window.setNavigationBarColor on Android 15+.
+          systemOverlayStyle: const SystemUiOverlayStyle(
+            statusBarIconBrightness: Brightness.dark,
+            statusBarBrightness: Brightness.light,
+          ),
           elevation: 0,
           bottom: PreferredSize(
             preferredSize: const Size(50, 30),

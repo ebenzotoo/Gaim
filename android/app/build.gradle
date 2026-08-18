@@ -18,11 +18,13 @@ if (keystorePropertiesFile.exists()) {
 android {
     namespace = "com.example.godalone"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    // Pinned to the NDK already installed on this machine (flutter.ndkVersion now
+    // defaults to 28.2.13676358, which isn't installed and isn't required for this app).
+    ndkVersion = "27.0.12077973"
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     // ndk{
@@ -30,7 +32,7 @@ android {
     // }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8
+        jvmTarget = JavaVersion.VERSION_17
     }
 
     defaultConfig {
